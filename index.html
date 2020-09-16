@@ -3,222 +3,34 @@
     <head>
         <meta charset="UTF-8">
         <title> Milan Ristovski CV</title>
+        <link rel="stylesheet" href="styles.css">
         <!-- <link rel="stylesheet" href="style.css"> -->
 
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Trade+Winds&display=swap');
+        <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script>
+            $(document).ready(function() {
+        $(".full_info_wrap .tabs ul li").click(function() {
+            $(".full_info_wrap .tabs ul li").removeClass("active");
+            $(this).addClass("active");
 
-* {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration:none;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-}
+            var details = $(this).attr("data-li");
 
-body {
-    background: #e7f1ff;
-    color: #a0acb5;
-    font-size: 14px;
-     letter-spacing: 1px;
-}
-
-.wrapper {
-    width: 100%;
-    height:100%;
-
-}
-.resume {
-    width: 450px;
-    margin: 5px auto;
-    background: #fff;
-    padding: 15px;
-    border-radius: 3px;
-    box-shadow: 1px 1px 2px rgba(0,0,0,0.125),
-    -1px -1px -2px rgba(0,0,0,0.125);
-}
-.resume .profile_info {
-    text-align: center;
-
-}
-.resume .profile_info .profile_img {
-    width: 100px;
-    margin: 0 auto 5px;
-}
-.resume .profile_info .profile_img img {
-    display: block;
-    width: 100%;
-}
-.resume .profile_info .profile_data .name{
-    font-size: 20px;
-    margin-bottom:5px;
-    /* font-family: 'Trade Winds', cursive; */
-}
-.resume .profile_info .profile_data span {
-    color: #697c8e;
-}
-.resume .profile_info .view_more_btn a {
-    display: block;
-    background: #5558c9;
-    color: #fff;
-    padding: 10px 15px;
-    width: 125px;
-    margin: 10px auto;
-    border-radius: 3px;
-}
-
-.resume .profile_info .view_more_btn a:hover {
-    background: #7377ff;   
-}
-.resume .title {
-    font-size: 16px;
-    font-weight: 700;
-    color: #5558c9;
-    margin-bottom: 15px;
-}
-.skills ul {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: space-between;
-}
-.skills ul li {
-    padding: 0 5px 10px;
-    width: 33.32%;
-    height: 85px;
-}
-.skills ul li .skill_item {
-    background: #f2f4f5;
-    width: 100%;
-    height: 100%;
-    border-radius: 3px;
-    text-align: center;
-    padding: 15px 10px;
-}
-.skills ul li .skill_item .icon{
-    background: url('https://img.techpowerup.org/200908/html-resized.png') no-repeat 0 0;
-    width: 20px;
-    height: 22px;
-    margin: 0 auto 5px;
-}
-.skills ul li .skill_item.css .icon {
-    background: url('https://img.techpowerup.org/200908/css-resized.png') no-repeat 0 0;
-}
-
-.skills ul li .skill_item.js .icon {
-    background: url('https://img.techpowerup.org/200908/javascript-resized.png') no-repeat 0 0;
- }
- .skills ul li .skill_item.CSharp .icon {
-    background: url('https://img.techpowerup.org/200908/c-resized.png') no-repeat 0 0;
- }
- .skills ul li .skill_item.asp .icon {
-    background: url('https://img.techpowerup.org/200908/asp-resized.png') no-repeat 0 0;
- }
- .skills ul li .skill_item.frameworks .icon {
-    background: url('https://img.techpowerup.org/200908/jquery-resized315.png') no-repeat 0 0;
- }
-.skills ul li .skill_item.sql .icon {
-     background: url('https://img.techpowerup.org/200913/webp-net-resizeimage-5.jpg') no-repeat 0 0 ;
- }
-.skills ul li .skill_item.angular .icon {
-     background: url('https://img.techpowerup.org/200913/webp-net-resizeimage-4.jpg') no-repeat 0 0 ;
- }
- .skills ul li .skill_item.mvc .icon {
-     background: url('https://img.techpowerup.org/200908/asp-resized.png') no-repeat 0 0 ;
- }
-
- .full_info_wrap .tabs ul {
-     display: flex;
-     width: 100%;
-     height: 36px;
-     border: 1px solid #dfe4e6;
-     border-radius: 3px;
- }
- .full_info_wrap .tabs ul li {
-     padding: 10px 15px;
-     width: 33.34%;
-     height: 100%;
-    text-align: center;
-    border-right: 1px solid #dfe4e6;
-    background: #f2f4f5;
-    color: #a0acb5;
-    font-weight: 600;
-    cursor: pointer;
- }
- .full_info_wrap .tabs ul li:last-child {
-     border-right: 0px;
- }
- .full_info_wrap .tabs ul li:hover,
- .full_info_wrap .tabs ul li.active{
-    background: #fff;
-    color: #5558c9;
-}
-.full_info{
-    padding-top: 15px;
-    height: 290px;
-    overflow: auto;
-}
-.info_wrap {
-    padding-left: 5px;
-}
-.info_wrap ul li {
-    margin-bottom: 10px;
-
-}
-.info_wrap ul li:last-child {
-    margin-bottom: 0px;
-}
-.info_wrap .sub_title {
-    font-size: 16px;
-    font-weight: 600;
-    color: #7377ff;
-}
-.info_wrap .info_item {
-    padding-left: 15px;
-    padding-top: 10px;
-}
-.info_wrap .info_item .info_title {
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-.info_wrap .info_item .data {
-    font-size: 12px;
-}
-.contact .info_item ul li span {
-    display: inline-block;
-}
-.contact .info_wrap ul li span.info_q {
-    width: 150px;
-}
-.contact .info_wrap ul li.span.info_a {
-    font-weight: 600;
-}
-
-@media only screen and (min-height: 770px) {
-    .full_info {
-        height:600px;
-    }
-    
-  }
-  
-  /* @media only screen and (min-height: 770px) {
-    .full_info {
-        height:600px;
-    }
-  } */
-  /* @media only screen and (max-width: 600px) {
-    .full_info {
-        height:600px;
-    }
-    .resume {
-        width: 100%;
-        margin: -125px -125px;
-    }
-  } */
-        </style>
-       <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="script.js"></script>
+            $(".full_info_item").hide();
+            if (details == "experience") {
+                $(".experience").show();
+            }
+            else if (details == "education") {
+                $(".education").show();
+            }
+            else if (details == "contact") {
+                $(".contact").show();
+            }
+            else {
+                console.log("Loading...");
+            }
+        })
+    })
+        </script>
     </head>
 
     <body>
